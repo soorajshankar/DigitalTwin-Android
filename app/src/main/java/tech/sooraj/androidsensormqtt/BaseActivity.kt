@@ -2,8 +2,12 @@ package tech.sooraj.androidsensormqtt
 
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+
+
 
 abstract class BaseActivity : AppCompatActivity() {
     var TAG="ANDROID_SENSOR_MQTT"
@@ -12,6 +16,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pd = ProgressDialog(this)
+        getSupportActionBar()?.hide();
 
     }
 
@@ -19,7 +24,9 @@ abstract class BaseActivity : AppCompatActivity() {
         super.setContentView(layoutResID)
     }
 
-
+    protected override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
     fun hideProgressDialogue() {
         if (pd!!.isShowing()) pd?.dismiss()
     }

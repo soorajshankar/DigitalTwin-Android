@@ -1,4 +1,4 @@
-package tech.sooraj.androidsensormqtt
+package tech.sooraj.androidsensormqtt.Activities
 
 import android.content.Context
 import android.hardware.Sensor
@@ -7,6 +7,8 @@ import android.hardware.SensorManager
 import android.util.Log
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
+import tech.sooraj.androidsensormqtt.BaseActivity
+import tech.sooraj.androidsensormqtt.R
 
 
 class LoginActivity : BaseActivity() {
@@ -23,7 +25,7 @@ class LoginActivity : BaseActivity() {
         // Create a listener
         var gyroscopeSensorListener = object : SensorEventListener {
             override fun onSensorChanged(sensorEvent: SensorEvent) {
-                Log.e(TAG, "X>>"+sensorEvent.values[0].toString()+" Y>>"+sensorEvent.values[1].toString()+" Z>>"+sensorEvent.values[2].toString())
+//                Log.e(TAG, "X>>"+sensorEvent.values[0].toString()+" Y>>"+sensorEvent.values[1].toString()+" Z>>"+sensorEvent.values[2].toString())
                 // More code goes here
             }
 

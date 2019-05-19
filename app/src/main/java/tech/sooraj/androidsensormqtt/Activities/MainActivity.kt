@@ -1,4 +1,4 @@
-package tech.sooraj.androidsensormqtt
+package tech.sooraj.androidsensormqtt.Activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,8 +7,9 @@ import android.widget.SeekBar
 import android.widget.TextView
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
+import tech.sooraj.androidsensormqtt.R
 
- class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     internal lateinit var mqttAndroidClient: MqttAndroidClient
 
