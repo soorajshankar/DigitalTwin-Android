@@ -6,28 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="32dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:padding="20dp">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_host"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Mqtt Host"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_freq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:inputType="number"
+                android:text="Frequency"
+                app:layout_constraintBottom_toTopOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/editText2"
+                app:layout_constraintVertical_bias="0.018"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:text="Start" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="279dp"
+        android:layout_width="match_parent"
         android:layout_height="331dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/art_login" />
+
 </android.support.constraint.ConstraintLayout>
