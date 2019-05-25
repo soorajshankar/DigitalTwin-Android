@@ -23,7 +23,7 @@
                 android:layout_marginTop="32dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Mqtt Host"
+                android:hint="Mqtt Host"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="8dp" />
 
@@ -35,7 +35,21 @@
                 android:layout_marginTop="4dp"
                 android:ems="10"
                 android:inputType="number"
-                android:text="Frequency"
+                android:hint="Frequency"
+                app:layout_constraintBottom_toTopOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/editText2"
+                app:layout_constraintVertical_bias="0.018"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_client"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Client"
                 app:layout_constraintBottom_toTopOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/editText2"
                 app:layout_constraintVertical_bias="0.018"
