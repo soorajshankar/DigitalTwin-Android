@@ -10,7 +10,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 abstract class BaseActivity : AppCompatActivity() {
-    var TAG="ANDROID_SENSOR_MQTT"
+    open var TAG="ANDROID_SENSOR_MQTT"
     var pd: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
