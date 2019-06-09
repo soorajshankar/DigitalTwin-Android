@@ -24,6 +24,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:hint="Mqtt Host"
+                android:text="test.mosquito.com"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="8dp" />
 
@@ -35,6 +36,7 @@
                 android:layout_marginTop="4dp"
                 android:ems="10"
                 android:inputType="number"
+                android:text="100"
                 android:hint="Frequency"
                 app:layout_constraintBottom_toTopOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/editText2"
