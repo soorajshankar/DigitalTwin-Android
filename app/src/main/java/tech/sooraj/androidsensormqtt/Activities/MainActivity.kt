@@ -1,16 +1,20 @@
 package tech.sooraj.androidsensormqtt.Activities
 
 import android.content.Context
+import android.graphics.Color
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
 import tech.sooraj.androidsensormqtt.BaseActivity
@@ -26,14 +30,16 @@ class MainActivity : BaseActivity() {
     internal lateinit var healthStatus: String
 
     internal var clientId: String? = "client1"
-    internal val subscriptionTopic = "spBv1.0/Android/subscribe"
+//    internal val subscriptionTopic = "spBv1.0/Android/subscribe"
     internal var publishTopic:String = "digital_twin/android/"+clientId
-    private var seekBar: SeekBar? = null
-    private var thread: Thread? = null
-    private var tv_sensorValues: TextView? = null
+
+    internal var isPolling: Boolean? = false;
+
+    private var timer =Timer();
+    private var tv_values: TextView? = null
+
     internal var seekValue: Int = 0
-    internal lateinit var btn_stop: Button
-    private var tv_info: TextView? = null
+    internal lateinit var btn_stp_strt: Button
     var rotation:Rotation= Rotation(0,0,0)
     var lastRotation:Rotation= Rotation(0,0,0)
 
@@ -54,8 +60,27 @@ class MainActivity : BaseActivity() {
         seekValue = 0
         publishTopic="digital_twin/android/"+clientId
 
+        initializeViews()
         initializeSensors()
         initializeMqtt()
+    }
+
+    private fun initializeViews() {
+        tv_values=findViewById<TextView>(R.id.tv_values)
+        tv_values?.setText("Sooraj Test")
+
+        btn_stp_strt=findViewById<Button>(R.id.btn_stp_start)
+        btn_stp_strt?.setText("Stop")
+        btn_stp_strt.setOnClickListener(object: View.OnClickListener{
+            override fun onClick(p0: View?) {
+                if(isPolling===true){
+                return stopPolling()
+                }else{
+                    startPolling()
+                }
+            }
+        })
+
     }
 
     private fun initializeSensors() {
@@ -70,6 +95,7 @@ class MainActivity : BaseActivity() {
             override fun onSensorChanged(sensorEvent: SensorEvent) {
                 rotation= Rotation(sensorEvent.values[0],sensorEvent.values[1],sensorEvent.values[2])
 //                Log.e(TAG, "X>>"+sensorEvent.values[0].toString()+" Y>>"+sensorEvent.values[1].toString()+" Z>>"+sensorEvent.values[2].toString())
+                tv_values?.setText("X:  "+rotation.x+"\n"+"Y:  "+rotation.y+"\n"+"Z:  "+rotation.z)
             }
 
             override fun onAccuracyChanged(sensor: Sensor, i: Int) {
@@ -161,13 +187,38 @@ class MainActivity : BaseActivity() {
         }
 
     }
+    private fun stopPolling() {
+
+        timer.purge()
+        timer.cancel()
+
+        btn_stp_strt?.setText("Start")
+        val red = ContextCompat.getColor(this, R.color.Red)
+        btn_stp_strt?.setBackgroundColor(red)
+        isPolling=false
+        showToast("MQTT Stream stoped")
+    }
     private fun startPolling() {
-        Timer().scheduleAtFixedRate(object : TimerTask() {
+        timer =Timer()
+
+        btn_stp_strt?.setText("Stop")
+        val green = ContextCompat.getColor(this, R.color.Green)
+        btn_stp_strt?.setBackgroundColor(green)
+
+        timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
-                addToHistory("vals>>>"+rotation.toString())
-                publishMessage(rotation.toString())
+                if(isPolling==true){
+                    addToHistory("vals>>>"+rotation.toString())
+                    publishMessage(rotation.toString())
+                }
             }
         }, 0, 1000)
+        isPolling=true
+        showToast("MQTT Stream started")
+    }
+
+    private fun showToast(s: String) {
+        Toast.makeText(applicationContext,s,Toast.LENGTH_SHORT).show()
     }
 
     private fun addToHistory(mainText: String) {
