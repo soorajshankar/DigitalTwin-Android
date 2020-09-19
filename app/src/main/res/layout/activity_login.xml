@@ -23,8 +23,8 @@
                 android:layout_marginTop="32dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Mqtt Host"
-                android:text="test.mosquito.com"
+                android:hint="@string/mqtt_host_label"
+                android:text="@string/default_mqtt"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="8dp" />
 
@@ -36,8 +36,8 @@
                 android:layout_marginTop="4dp"
                 android:ems="10"
                 android:inputType="number"
-                android:text="100"
-                android:hint="Frequency"
+                android:text="@string/default_freq"
+                android:hint="@string/frequency"
                 app:layout_constraintBottom_toTopOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/editText2"
                 app:layout_constraintVertical_bias="0.018"
@@ -49,9 +49,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="4dp"
-                android:ems="10"
-                android:inputType="number"
-                android:hint="Client"
+                android:text="clientId-mdgQd49TpM"
+                android:hint="@string/clientLabel"
                 app:layout_constraintBottom_toTopOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/editText2"
                 app:layout_constraintVertical_bias="0.018"
@@ -63,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
                 android:textColor="@color/white"
-                android:text="Start" />
+                android:text="@string/start_label" />
 
         </LinearLayout>
     </ScrollView>
@@ -75,6 +74,7 @@
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/art_login" />
+        app:srcCompat="@drawable/art_login"
+        android:contentDescription="@string/todo" />
 
 </android.support.constraint.ConstraintLayout>

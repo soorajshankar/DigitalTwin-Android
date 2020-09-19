@@ -167,7 +167,7 @@ class MainActivity : BaseActivity() {
                 addToHistory("vals>>>"+rotation.toString())
                 publishMessage(rotation.toString())
             }
-        }, 0, 100)
+        }, 0, 1000)
     }
 
     private fun addToHistory(mainText: String) {
