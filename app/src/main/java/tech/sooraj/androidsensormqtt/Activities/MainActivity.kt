@@ -67,7 +67,6 @@ class MainActivity : BaseActivity() {
 
     private fun initializeViews() {
         tv_values=findViewById<TextView>(R.id.tv_values)
-        tv_values?.setText("Sooraj Test")
 
         btn_stp_strt=findViewById<Button>(R.id.btn_stp_start)
         btn_stp_strt?.setText("Stop")
