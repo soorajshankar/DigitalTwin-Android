@@ -1,6 +1,6 @@
 # Android Digital Twin
 
-##Project Description
+## Project Description
 This project is a sample digital twin which streams real time rotational sensor data to the mqtt cloud and the supporting web application will render the twin application on the web browser.
 
 ## Features
