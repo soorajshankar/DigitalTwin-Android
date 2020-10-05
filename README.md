@@ -23,3 +23,7 @@ This project is a sample digital twin which streams real time rotational sensor 
 > To check the data on broker 
 > subscribe to topic "digital_twin/android/#"
 > will be replaced by the client id which you specify
+
+Demo 
+
+https://play.google.com/store/apps/details?id=tech.sooraj.androidsensormqtt
