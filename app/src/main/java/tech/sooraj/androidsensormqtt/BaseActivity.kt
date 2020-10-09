@@ -16,17 +16,10 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pd = ProgressDialog(this)
-        getSupportActionBar()?.hide();
 
     }
 
-    override fun setContentView(layoutResID: Int) {
-        super.setContentView(layoutResID)
-    }
 
-    protected override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
-    }
     fun hideProgressDialogue() {
         if (pd!!.isShowing()) pd?.dismiss()
     }
