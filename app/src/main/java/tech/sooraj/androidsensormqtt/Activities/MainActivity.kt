@@ -69,7 +69,7 @@ class MainActivity : BaseActivity() {
         tv_values=findViewById<TextView>(R.id.tv_values)
 
         btn_stp_strt=findViewById<Button>(R.id.btn_stp_start)
-        btn_stp_strt?.setText("Stop")
+        btn_stp_strt?.setText(getString(R.string.stop_btn))
         btn_stp_strt.setOnClickListener(object: View.OnClickListener{
             override fun onClick(p0: View?) {
                 if(isPolling===true){
@@ -111,7 +111,7 @@ class MainActivity : BaseActivity() {
     private fun initializeMqtt() {
 
         mqttAndroidClient = MqttAndroidClient(applicationContext, serverUri, clientId)
-        showProgressDialogue("Connecting..")
+        showProgressDialogue(getString(R.string.connect))
         mqttAndroidClient.setCallback(object : MqttCallbackExtended {
             override fun connectComplete(reconnect: Boolean, serverURI: String) {
                 hideProgressDialogue()
@@ -191,16 +191,16 @@ class MainActivity : BaseActivity() {
         timer.purge()
         timer.cancel()
 
-        btn_stp_strt?.setText("Start")
+        btn_stp_strt?.setText(getString(R.string.start_btn))
         val red = ContextCompat.getColor(this, R.color.Red)
         btn_stp_strt?.setBackgroundColor(red)
         isPolling=false
-        showToast("MQTT Stream stoped")
+        showToast(getString(R.string.mqtt_stop))
     }
     private fun startPolling() {
         timer =Timer()
 
-        btn_stp_strt?.setText("Stop")
+        btn_stp_strt?.setText(getString(R.string.stop_btn))
         val green = ContextCompat.getColor(this, R.color.Green)
         btn_stp_strt?.setBackgroundColor(green)
 
@@ -213,7 +213,7 @@ class MainActivity : BaseActivity() {
             }
         }, 0, 1000)
         isPolling=true
-        showToast("MQTT Stream started")
+        showToast(getString(R.string.mqtt_start))
     }
 
     private fun showToast(s: String) {

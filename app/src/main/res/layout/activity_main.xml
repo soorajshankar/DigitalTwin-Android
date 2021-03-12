@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Gyroscope"
+        android:text="@string/gyroscope"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"

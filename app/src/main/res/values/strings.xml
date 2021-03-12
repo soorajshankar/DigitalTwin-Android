@@ -7,4 +7,11 @@
     <string name="frequency">Frequency</string>
     <string name="start_label">Start</string>
     <string name="todo">TODO</string>
+    <string name="mqtt_start">MQTT Stream started</string>
+    <string name="mqtt_stop">MQTT Stream stoped</string>
+    <string name="connect">Connecting..</string>
+
+    <string name="start_btn">Start</string>
+    <string name="stop_btn">Stop</string>
+    <string name="gyroscope">Gyroscope</string>
 </resources>

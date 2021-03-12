@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Android Sensor MQTT</string>
+    <string name="clientLabel">Cliente</string>
+    <string name="mqtt_host_label">Host Mqtt</string>
+    <string name="default_mqtt">broker.mqttdashboard.com</string>
+    <string name="default_freq">100</string>
+    <string name="frequency">Frecuencia</string>
+    <string name="start_label">Iniciar</string>
+    <string name="todo">TODO</string>
+    <string name="mqtt_start">Transmisión MQTT iniciada</string>
+    <string name="mqtt_stop">Transmisión MQTT parada</string>
+    <string name="connect">Conectando..</string>
+
+    <string name="start_btn">Iniciar</string>
+    <string name="stop_btn">Parar</string>
+    <string name="gyroscope">Giroscopio</string>
+
+</resources>
