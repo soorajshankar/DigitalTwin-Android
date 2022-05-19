@@ -31,5 +31,5 @@ https://play.google.com/store/apps/details?id=tech.sooraj.androidsensormqtt
 
 To run the web renderer
 ```
-npx serve public
+npx serve .
 ```
