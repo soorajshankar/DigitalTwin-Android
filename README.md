@@ -27,3 +27,9 @@ This project is a sample digital twin which streams real time rotational sensor 
 Demo 
 
 https://play.google.com/store/apps/details?id=tech.sooraj.androidsensormqtt
+
+
+To run the web renderer
+```
+npx serve public
+```
